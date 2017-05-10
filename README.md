@@ -22,19 +22,6 @@ to enter the func name and the image name. The other params are optional. Click 
 and you will see some response
 
 
-### Things to do
-
-What we know so far
-1. We know how to pass in the values into the containers.
-2. The conainers need to built, run and removed for each run. 
-
-Here's what we want to do
-
-1. Start a server
-2. On specific requests, specific containers are called
-3. Track the time spent when the container is running
-4. Maybe, use postman to make these requests
-5. Work on the front-end to select the image and generated the URL
-6. These new URLs when invoked should run fine
-
-This should be good for now. 04/13/2017
+### Details
+- This concept was presented at [DevopsDays Austin](http://devopsdaysaustin.com). I will update this with a link to the video once it's uploaded.
+- You can refer to the slides [here](http://adityarelangi.com/talks/2017/may/)
