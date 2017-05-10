@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Granda</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<style>
+   .bs-example{
+    	margin: 2em;
+    	margin-top: 5em;
+    }
+    button{
+    	margin-left: 10em;
+    }
+    .results, .fail{
+    	display: none;
+    }
+
+    .results a{
+    	font-size: 1.2em;
+    	padding-left: 1.5em;
+    	padding-right: 1.5em;
+    	padding-top: 0.5em;
+    	padding-bottom: 0.5em;
+		background-color: #EEF8D9;
+    }
+
+    .res{
+    	padding-top: 3em;
+    	font-size: 1.2em;
+    }
+
+    .imageEx, .codeEx{
+    	display: none;
+    	margin: 10%;
+    }
+
+    #what{
+    	margin-left: 45%;
+    }
+
+    .btnClass{
+    	margin-left: 10em;
+    }
+
+    #code{
+    	height: 40em;
+		width: 40em;
+    }
+
+    .loading{
+    	margin-left: 50%;
+    	display: none;
+    }
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="bs-example">
+
+	<div class="row">
+		<div id="what" class="btn-group btn-group-lg center-block" role="group" aria-label="Large button group">
+		 	<button id="imageBtn" type="button" class="btn btn-default">Image</button> 
+			 <button id="codeBtn" type="button" class="btn btn-default">Code</button>
+		</div>
+		<br/>
+	</div>
+
+
+	    <div class="imageEx row">
+			<form class="form-horizontal">
+				<fieldset>
+
+
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">Name</label>  
+				  <div class="col-md-4">
+				  		<input type="text" id="fname" required data-fv-notempty-message="The function name is required" class="form-control" placeholder="Function name">
+				  </div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="desc">Description</label>  
+				  <div class="col-md-4">
+				  		<input type="text" id="desc" class="form-control" placeholder="lamda function">
+				  </div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="timeout">Image</label>  
+				  <div class="col-md-4">
+				 		<input type="text" id="docker" required data-fv-notempty-message="The docker image is required" class="form-control" placeholder="golang">
+		                <span class="help-block">docker image to pull</span>
+				    
+				  </div>
+				</div>
+
+				<!-- Text input -->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="code">Timeout</label>
+				  <div class="col-md-4">                     
+				    <input type="number" id="timeout" class="form-control" placeholder="50">
+		                <span class="help-block">Timeout in seconds</span>
+				  </div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-4 btnClass">                     
+		        		<button id="image-submit" class="btn btn-success btn-lg">Let's get this going!</button>
+		        	</div>
+		        </div>
+
+				</fieldset>
+		   </form>
+		</div>
+
+		<div class="codeEx row">
+		   <form class="form-horizontal">
+				<fieldset>
+
+
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">Name</label>  
+				  <div class="col-md-4">
+				  <input id="codefuncname"  name="textinput" type="text" placeholder="" class="form-control input-md" required="">
+				    
+				  </div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="desc">Description</label>  
+				  <div class="col-md-4">
+				  <input id="codedesc" name="desc" type="text" placeholder="" class="form-control input-md">
+				    
+				  </div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="timeout">Timeout</label>  
+				  <div class="col-md-4">
+				  <input id="codetimeout" name="timeout" type="text" placeholder="" class="form-control input-md">
+				    
+				  </div>
+				</div>
+
+				<!-- Select Multiple -->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="runtime">Runtime</label>
+				  <div class="col-md-4">
+				    <select id="coderuntime" name="runtime" class="form-control" multiple="multiple">
+				      <option value="Go1.7">Go 1.7</option>
+				      <option value="Go1.6">Go 1.6</option>
+				      <option value="Go1.5">Go 1.5</option>
+				    </select>
+				  </div>
+				</div>
+
+				<!-- Textarea -->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="code">Code</label>
+				  <div class="col-md-4">                     
+				    <textarea class="form-control" id="code" name="code">Paste your code here</textarea>
+				  </div>
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-md-4 btnClass">                     
+		        		<button  id="code-submit" class="btn btn-success btn-lg">Let's get this going!</button>
+		        	</div>
+		        </div>
+
+				</fieldset>
+		   </form>
+		</div>
+
+
+	</div>
+
+	<div class="results">
+		<p class="res">Succesfully registered your function. You can now invoke it at the following URL</p>
+	</div>
+
+	<div class="loading">
+		<img src="../img/ajax-loader.gif">
+	</div>
+
+	<div class="fail">
+		
+		<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Warning!</strong> Failed to register the function. Check the info you entered.
+</div>
+	</div>
+
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function() {
+
+	//Switch between image and code
+	$('#codeBtn').click(function(event) {
+		$(".imageEx").hide();
+		$(".codeEx").show();
+	});
+
+	//Switch between image and code
+	$('#imageBtn').click(function(event) {
+		$(".codeEx").hide();
+		$(".imageEx").show();
+	});
+
+
+	//Submit an image function
+	$('#image-submit').click(function(event) {
+
+		event.preventDefault();
+		
+		$("#loading").show();
+
+		//Image submitted
+		fname = $('#fname').val();
+		desc = $('#desc').val();
+		docker = $('#docker').val();
+		timeout = $('#timeout').val();
+
+		url = 'http://localhost:8881/createFunc';
+		$.post(url, {
+			name: fname,
+			description: desc,
+			image: docker,
+			time: timeout
+		}, function(data) {
+			var response = data;
+			console.log(response);
+			if (response.status == true) {
+				$(".bs-example").hide();
+				$(".fail").hide();
+				$(".results").append('<a href="' + data.path + '">' + data.path + '</a>');
+				$("#loading").hide();
+				$(".results").show();
+			} else {
+				$("#loading").hide();
+				$(".fail").show();
+				$(".results").hide();
+			}
+		});
+	});
+
+
+	//Submit code for the function
+	$('#code-submit').click(function(event) {
+
+		event.preventDefault();
+
+		$("#loading").show();
+		
+		//Code submitted
+
+		codefuncname = $('#codefuncname').val();
+		codedesc = $('#codedesc').val();
+		codetimeout = $('#codetimeout').val();
+		coderuntime = $('#coderuntime').val()[0];
+		code = $('#code').val();
+
+		console.log(codefuncname);
+		console.log(codedesc);
+		console.log(codetimeout);
+		console.log(coderuntime);
+		console.log(code);
+
+
+
+		url = 'http://localhost:8881/createCodeFunc';
+		$.post(url, {
+			name: codefuncname,
+			runtime: coderuntime,
+			time: codetimeout,
+			description: codedesc,
+			code:code
+		}, function(data) {
+			var response = data;
+			console.log(response);
+			if (response.status == true) {
+				$(".bs-example").hide();
+				$(".fail").hide();
+				$(".results").append('<a href="' + data.path + '">' + data.path + '</a>');
+				$("#loading").hide();
+				$(".results").show();
+			} else {
+				$("#loading").hide();
+				$(".fail").show();
+				$(".results").hide();
+			}
+		});
+	});
+});
+
+</script>
+</html>
