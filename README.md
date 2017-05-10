@@ -6,6 +6,9 @@ Granda is the grand daddy of lambda, an event based serverless compute engine th
 
 For a better explanation, try [AWS Lambda](https://aws.amazon.com/lambda/)
 
+## Note
+GRANDA is a POC, not to be used for anything other than playing around and understanding how Serverless works.
+
 
 ### How to run
 
