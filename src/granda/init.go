@@ -21,7 +21,7 @@ const (
 	prefix           = "http://localhost:8881"
 	latest           = ":latest"
 	colon            = ":"
-	dbPath           = "/repos/granda/src/sqlite/granda.db"
+	dbPath           = "../sqlite/granda.db"
 	userSpacePath    = "userspace/"
 	goUserSpacePath  = userSpacePath + "golang/"
 	py3UserSpacePath = userSpacePath + "py3/"
